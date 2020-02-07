@@ -1,82 +1,161 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <link rel="stylesheet" href="./assets/css/main.css">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <link rel="stylesheet" href="./assets/css/main.css" />
     <title>SixtyOne-Notes</title>
-</head>
-<body>
-
+  </head>
+  <body>
     <div class="grid-container">
+      <header>
+        <nav>
+          <a href="#" class="logo">
+            <img src="./assets/img/Logo.svg" alt="notes app logo" />
+          </a>
+          <div class="auth">
+            <button>Login</button>
+            <button>Sign Up</button>
+          </div>
+        </nav>
+      </header>
 
-        <header>
-            <nav>
-                <a href="#" class="logo">
-                    <img src="./assets/img/Logo.svg" alt="notes app logo">
-                </a>
-                <div class="auth">
-                   <button>Login</button>
-                   <button>Sign Up</button>
-                </div>
-            </nav>
-        </header>
+      <main>
+        <p class="hero-text">
+          You can’t really manage time, but you can take small steps that counts
+          on a long run.
+        </p>
 
-        <main>
-            <p class="hero-text">
-                You can’t really manage time, but you can take small steps that counts on a long run.
-            </p>
+        <ul class="steps">
+          <li>Track your daily activities</li>
+          <li>Save important notes or code snippets you’re likely to reuse</li>
+          <li>Keep a diary of your daily activities</li>
+        </ul>
 
-            <ul class="steps">
-                <li>Track your daily activities</li>
-                <li>Save important notes or code snippets you’re likely to reuse</li>
-                <li>Keep a diary of your daily activities</li>
-            </ul>
+        <button class="blue-btn">
+          Get Started
+        </button>
+      </main>
 
-            <button class="blue-btn">
-                Get Started
-            </button>
-        </main>
+      <aside>
+        <div class="card">
+          <div class="card-img">
+            <img src="./assets/img/imgA.jpg" alt="" />
+          </div>
 
+          <p>track your TODOS status</p>
+        </div>
 
-        <aside>
+        <div class="card">
+          <div class="card-img">
+            <img src="./assets/img/imgB.jpg" alt="" />
+          </div>
 
-            <div class="card">
-                <div class="card-img">
-                    <img src="./assets/img/imgA.jpg" alt="">
-                </div>
-                
-                <p>track your TODOS status</p>
-            </div>
+          <p>Jot down reusable code snippets</p>
+        </div>
 
-            <div class="card">
-                <div class="card-img">
-                    <img src="./assets/img/imgB.jpg" alt="">
-                </div>
-                
-                <p>Jot down reusable code snippets</p>
-            </div>
+        <div class="card">
+          <div class="card-img">
+            <img src="./assets/img/imgC.jpg" alt="" />
+          </div>
 
-            <div class="card">
-                <div class="card-img">
-                    <img src="./assets/img/imgC.jpg" alt="">
-                </div>
-                
-                <p>Jot down your daily activities</p>
-            </div>
-
-        </aside>
-        <footer>All Rights Reserved. 2020 @wiztemple</footer>
+          <p>Jot down your daily activities</p>
+        </div>
+      </aside>
+      <footer>All Rights Reserved. 2020 @wiztemple</footer>
     </div>
 
-    <div class="form-container hidden">
+    <div class="form-container">
+     
+        <form action="" class="auth-form hidden" id="sign-up">
+        <img
+          class="close-btn"
+          src="./assets/img/close.svg"
+          alt="close button"
+        />
 
-        <form action="" class="auth-form"  id="login"></form>
-        <form action="" class="auth-form"  id="sign-up"></form>
+        <img src="./assets/img/Logo.svg" alt="sixty-one notes logo" />
 
+        <p class="form-header">
+          Hello
+          <br />
+          welcome back
+        </p>
+
+        <p class="mini-text">
+            Enter your personal details to login in
+        </p>
+
+        <button class="auth-helper">
+          <img src="./assets/img/google-logo.svg" alt="logo of google" />
+          <span>
+            Sign in with Google
+          </span>
+        </button>
+
+        <div class="fancy-or">
+          <div class="line"></div>
+          <span>OR</span>
+        </div>
+
+        <div class="form-section">
+          <input type="email" id="user-email" placeholder="Email" />
+          <input type="password" id="user-password" placeholder="Password" />
+        </div>
+
+        <button class="submit-btn" type="submit">Sign In</button>
+
+        <p class="form-footer ">
+          Don’t have an account?
+          <span class="form-footer-link"> Sign up here</span>
+        </p>
+      </form>
+
+      <form action="" class="auth-form " id="sign-up">
+        <img
+          class="close-btn"
+          src="./assets/img/close.svg"
+          alt="close button"
+        />
+
+        <img src="./assets/img/Logo.svg" alt="sixty-one notes logo" />
+
+        <p class="form-header">
+          Create <br />
+          your account
+        </p>
+
+        <p class="mini-text">
+          Enter your personal details to start your journey today
+        </p>
+
+        <button class="auth-helper">
+          <img src="./assets/img/google-logo.svg" alt="logo of google" />
+          <span>
+            Sign up with Google
+          </span>
+        </button>
+
+        <div class="fancy-or">
+          <div class="line"></div>
+          <span>OR</span>
+        </div>
+
+        <div class="form-section">
+          <input type="text" id="name" placeholder="Name" />
+          <input type="text" id="username" placeholder="Username" />
+          <input type="email" id="email" placeholder="Email" />
+          <input type="password" id="password" placeholder="Password" />
+        </div>
+
+        <button class="submit-btn" type="submit">Sign Up</button>
+
+        <p class="form-footer ">
+          Already have an account?
+          <span class="form-footer-link"> Sign in here</span>
+        </p>
+      </form>
     </div>
-
-    
-</body>
+  </body>
 </html>

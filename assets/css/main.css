@@ -7,6 +7,13 @@
 
 @font-face 
 {
+    font-family: "Roboto-Bold";
+    src: url("../fonts/Roboto/Roboto-Bold.ttf") format('truetype');
+   
+}
+
+@font-face 
+{
     font-family: "Open Sans ";
     src: url("../fonts/Open_Sans/OpenSans-Regular.ttf") format('truetype');
    
@@ -25,6 +32,13 @@
     margin: 0;
     padding: 0;
 }
+
+body
+{
+    position: relative;
+}
+
+
 
 ::-webkit-scrollbar 
 {
@@ -275,13 +289,185 @@ footer
 .form-container
 {
     position: absolute;
+    top:0;
+    left:0;
     z-index:30;
     background: rgba(0, 0, 0, 0.2);
-    width:100vw;
-    min-height: 100vh;
+    width:100%;
+    min-height: 100%;
+}
+
+.hidden
+{
+    display: none;
+}
+
+.auth-form
+{
+    margin: 50px auto;
+    width:90vw;
+    max-width:350px;
+    background: #fff;
+    border-radius: 10px;
+    min-height: 300px;
+    position:relative;
+    text-align: center;
+    padding: 40px 20px 20px;
+}
+
+.close-btn
+{
+    position: absolute;
+    right:20px;
+    top:20px;
+    cursor: pointer;
+   border-radius: 5px;
+    padding: 5px
+}
+
+.close-btn:hover
+{
+    box-shadow: 0px 0px 1px 1px #507EF5;
+}
+
+.form-header
+{
+    color:#356DFB;
+    font-size: 22px;
+    text-align: left;
+    font-family: "Roboto-Bold",'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+.mini-text
+{
+    font-family: "Roboto",'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    font-size: 13px;
+    color: #777777;
+    margin-top: 10px;
+    text-align: left;
+
+}
+
+.auth-helper
+{
+    width:100%;
+    padding: 5px 10px;
+    outline: none;
+    background: rgba(196, 196, 196, 0.05);
+    border: 1px solid #356DFB;
+    border-radius: 10px;
+    margin-top: 30px;
+    cursor: pointer;
+    color: #356DFB;
+}
+
+.auth-helper span
+{
+    vertical-align: super;
+    font-family: "Roboto",'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+.auth-helper:hover
+{
+    background: rgba(80, 127, 245, 0.438);
+    border: 1px solid transparent;
+    color:#fff
+}
+
+.fancy-or
+{
+    position: relative;
+    display: inline-block;
+    min-width: 120px;
+    min-height: 20px;
+    margin: 10px auto;
+}
+
+.line
+{
+   position: absolute;
+   top:60%;
+   left:0;
+   background: #B6B8C9;
+   height: 1px;
+   width:100%
+}
+
+.fancy-or span
+{
+   position: absolute;
+   background-color: #fff;
+   color: #B6B8C9;
+   left:50%;
+   top:0;
+   transform: translateX(-50%);
+   text-align: center;
+   font-family: "Roboto",'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+   font-size: 16px;
+   padding: 5px 10px;
 }
 
 
+.form-section input
+{
+    background: rgba(196, 196, 196, 0.05);
+    border: 1px solid #DEDFEC;
+    border-radius: 10px;
+    padding: 10px;
+    width: 100%;
+    margin: 10px auto;
+    outline: none;
+}
+
+.form-section input:focus
+{
+    box-shadow: 0px 0px 1px 1px #507EF5;
+}
+
+
+::placeholder 
+{
+    color:#B6B8C9;
+}
+  
+:-ms-input-placeholder 
+{
+  color:#B6B8C9;
+}    
+::-ms-input-placeholder 
+{
+   color:#B6B8C9;
+}
+
+.submit-btn
+{
+    color:#fff;
+    background-color: #356DFB;
+    padding: 14px;
+    width: 100%;
+    border: none;
+    border-radius: 20px;
+    margin: 20px auto 0;
+    cursor: pointer;
+}
+
+.form-footer
+{
+  font-size: 13px;
+  font-family: "Roboto",'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  margin:12px auto 20px;
+}
+
+.form-footer-link
+{
+    color: #356DFB;
+    cursor: pointer;
+}
+
+.form-footer-link:hover
+{
+   text-decoration: underline;
+}
 
 /* MEDIA QUERIES */
 @media screen and (min-width:425px)
