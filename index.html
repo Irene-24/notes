@@ -15,8 +15,8 @@
             <img src="./assets/img/Logo.svg" alt="notes app logo" />
           </a>
           <div class="auth">
-            <button>Login</button>
-            <button>Sign Up</button>
+            <button id="signin-btn">Login</button>
+            <button id="signup-btn">Sign Up</button>
           </div>
         </nav>
       </header>
@@ -66,9 +66,9 @@
       <footer>All Rights Reserved. 2020 @wiztemple</footer>
     </div>
 
-    <div class="form-container">
+    <div class="form-container hidden">
      
-        <form action="" class="auth-form hidden" id="sign-up">
+        <form action="" class="auth-form hidden" id="sign-in">
         <img
           class="close-btn"
           src="./assets/img/close.svg"
@@ -108,11 +108,11 @@
 
         <p class="form-footer ">
           Don’t have an account?
-          <span class="form-footer-link"> Sign up here</span>
+          <span class="form-footer-link signup"> Sign up here</span>
         </p>
       </form>
 
-      <form action="" class="auth-form " id="sign-up">
+      <form action="" class="auth-form hidden" id="sign-up">
         <img
           class="close-btn"
           src="./assets/img/close.svg"
@@ -153,9 +153,11 @@
 
         <p class="form-footer ">
           Already have an account?
-          <span class="form-footer-link"> Sign in here</span>
+          <span class="form-footer-link signin"> Sign in here</span>
         </p>
       </form>
     </div>
+
+    <script src="./assets/js/index.js"></script>
   </body>
 </html>

@@ -73,6 +73,11 @@ body
 	border-radius: 50px;
 }
 
+button
+{
+    cursor: pointer;
+}
+
 
 /* GRID LAYOUT */
 
@@ -163,7 +168,6 @@ nav
     border: none;
     font-family:"Roboto", 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;    
     background-color: transparent;
-    cursor: pointer;
     flex-grow: 1;
     outline: none;
 }
@@ -234,7 +238,7 @@ aside
     display: grid;
     grid-auto-rows: minmax(150px,250px);
     gap:10px 5px;
-    padding: 10px;
+    padding: 30px 10px 10px;
 }
 
 .card
@@ -242,10 +246,28 @@ aside
     background: #FFFFFF;
     box-shadow: 0px 1px 4px rgba(0, 0, 0, 0.1);
     border-radius: 5px;
-    height: 280px;
-    overflow: hidden;
+    /* overflow: hidden; */
     position: relative;
     
+}
+
+.card::before
+{
+    content: "";
+    width:40%;
+    height: 40%;
+    position: absolute;
+    background-image: url('../img/dotted-bg.svg');
+    background-size: contain;
+    background-repeat: no-repeat;
+    top:-10%;
+    left: -10%;
+    z-index: -1;
+}
+.card:nth-child(3)::before
+{
+   top:unset;
+   bottom: -10%;
 }
 
 .card-img
@@ -357,7 +379,6 @@ footer
     border: 1px solid #356DFB;
     border-radius: 10px;
     margin-top: 30px;
-    cursor: pointer;
     color: #356DFB;
 }
 
@@ -448,7 +469,6 @@ footer
     border: none;
     border-radius: 20px;
     margin: 20px auto 0;
-    cursor: pointer;
 }
 
 .form-footer
@@ -480,7 +500,8 @@ footer
 
     .card
     {
-        max-width: 200px;
+        max-width: 200px;       
+        height: 280px;
     }
 
     .card:nth-child(1)
@@ -530,6 +551,12 @@ footer
     .blue-btn
     {
         padding:14px 40px;
+    }
+
+    .card::before
+    {
+        width:60%;
+        height: 50%;
     }
 
 
