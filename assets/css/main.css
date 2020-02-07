@@ -26,21 +26,37 @@
     padding: 0;
 }
 
-::-webkit-scrollbar
+::-webkit-scrollbar 
 {
-	height: 7px;
-	width: 7px;
+    width: 14px;
+    height: 18px;
+}
+
+::-webkit-scrollbar-thumb 
+{
+    height: 6px;
+    border: 4px solid rgba(0, 0, 0, 0);
+    border-radius: 7px;
+    background-color:#507EF5;
+    background-clip: padding-box;
+    box-shadow: inset -1px -1px 0px rgba(0, 0, 0, 0.05), inset 1px 1px 0px rgba(0, 0, 0, 0.05);
+}
+
+::-webkit-scrollbar-button 
+{
+    width: 0;
+    height: 0;
+    display: none;
+}
+
+::-webkit-scrollbar-corner 
+{
+    background-color: transparent;
 }
 
 ::-webkit-scrollbar-track
 {
 	border-radius: 50px;
-
-}
-::-webkit-scrollbar-thumb
-{
-	border-radius: 7px;
-    background-color:#507EF5;
 }
 
 
@@ -254,6 +270,16 @@ footer
 
 }
 /* FOOTER END*/
+
+/* FORMS  */
+.form-container
+{
+    position: absolute;
+    z-index:30;
+    background: rgba(0, 0, 0, 0.2);
+    width:100vw;
+    min-height: 100vh;
+}
 
 
 
