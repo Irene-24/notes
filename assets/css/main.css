@@ -297,6 +297,7 @@ aside
 /* FOOTER */
 footer
 {
+    margin-top: 30px;
     grid-template-columns: repeat(3,1fr); 
     text-align: center;
     color: #555555;
@@ -499,8 +500,7 @@ footer
     }
 
     .card
-    {
-        max-width: 200px;       
+    {      
         height: 280px;
     }
 
