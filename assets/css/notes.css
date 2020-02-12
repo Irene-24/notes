@@ -1,0 +1,46 @@
+body
+{
+  background-color: #F7FBFD;
+}
+
+header
+{
+    padding: 7px 20px 0;
+    background-color: #fff;
+}
+
+.search-bar
+{
+    display: inline-block;
+    vertical-align: top;
+    min-width: 100px;
+    padding: 5px;
+    border-bottom: 1px solid #ccc;
+}
+
+.search-bar img
+{
+    cursor: pointer;
+    max-width: 26px;
+}
+
+.search-bar input
+{
+    border: none;
+    outline: none;
+    display: inline-block;
+    vertical-align: bottom;
+    font-size: 16px;
+    padding: 0 0 4px 4px;
+}
+
+@media screen and (min-width:768px)
+{
+    .search-bar
+    {
+        margin-left: 30px;
+        
+    }
+
+
+}
