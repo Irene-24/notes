@@ -8,17 +8,28 @@ const signUpBtn = document.querySelector('#signup-btn');
 const signInBtn2 = document.querySelector('.signin');
 const signUpBtn2 = document.querySelector('.signup');
 
-signInBtn.addEventListener('click',() => showForm('#sign-in'));
-signUpBtn.addEventListener('click',() => showForm('#sign-up'));
+assignEvent(signInBtn,'click',showForm,'#sign-in');
+assignEvent(signUpBtn,'click',showForm,'#sign-up');
+assignEvent(signInBtn2,'click',showForm,'#sign-in');
+assignEvent(signUpBtn2,'click',showForm,'#sign-up');
+assignEvent(formWrap,'click',closeForm);
 
-signInBtn2.addEventListener('click',() => showForm('#sign-in'));
-signUpBtn2.addEventListener('click',() => showForm('#sign-up'));
 
-closeBtns.forEach( btn => 
+closeBtns.forEach( btn => assignEvent(btn,'click',closeForm));
+
+
+function assignEvent(target,eventName,callback,arg=null)
+{
+    
+    if(arg)
     {
-        btn.addEventListener('click',closeForm);
-    });
-
+        target.addEventListener(eventName,() => callback(arg));
+    }
+    else
+    {
+        target.addEventListener(eventName,callback);
+    }
+}
 
 
 function showForm(formId)
@@ -37,7 +48,12 @@ function showForm(formId)
 
 function closeForm()
 {
-    window.scrollTo(0,0);
-    formWrap.classList.add('hidden');
-    activeForm.classList.add('hidden');
+    if(event.target.classList.contains("form-container") || event.target.classList.contains("close-btn") )
+    {
+        window.scrollTo(0,0);
+        formWrap.classList.add('hidden');
+        activeForm.classList.add('hidden');
+    }
+    
+  
 }
