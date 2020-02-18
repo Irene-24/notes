@@ -5,42 +5,81 @@ body
 
 header
 {
-    padding: 7px 20px 0;
     background-color: #fff;
+    border-bottom: 1px solid #EEEEEE;
 }
 
-.search-bar
+.top-nav
+{
+    position: relative;
+}
+
+.top-nav > *
 {
     display: inline-block;
-    vertical-align: top;
-    min-width: 100px;
-    padding: 5px;
-    border-bottom: 1px solid #ccc;
 }
 
-.search-bar img
+.logo
+{
+    padding: 10px 10px 0;
+}
+
+.search-box
+{
+    display: none;
+}
+
+.search-box input
+{
+    /* border: none; */
+    outline: none;
+}
+
+.hamburger
 {
     cursor: pointer;
-    max-width: 26px;
+    position: absolute;
+    right: 14px;
+    top: 18px;
 }
 
-.search-bar input
+.hamburger div
 {
-    border: none;
-    outline: none;
-    display: inline-block;
-    vertical-align: bottom;
-    font-size: 16px;
-    padding: 0 0 4px 4px;
+    height: 4px;
+    margin-bottom: 5px ;
+    width: 25px;
+    background-color: #507EF5;
+    border-radius: 2px;
+
+}
+
+.hamburger div:nth-child(1)
+{
+    width: 45px;
+}
+
+.hamburger div:nth-child(2)
+{
+  
+   width: 35px;
+   transform: translateX(10px);
+}
+
+.hamburger div:nth-child(3)
+{
+    transform: translateX(20px);
 }
 
 @media screen and (min-width:768px)
 {
-    .search-bar
+    .search-box
     {
-        margin-left: 30px;
-        
+        display: inline-block;
     }
-
+    
+    .hamburger
+    {
+        display: none;
+    }
 
 }
