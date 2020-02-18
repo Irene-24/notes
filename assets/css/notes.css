@@ -1,17 +1,22 @@
 body
 {
   background-color: #F7FBFD;
+  font-family: "Roboto", 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 }
 
 header
 {
-    background-color: #fff;
-    border-bottom: 1px solid #EEEEEE;
+    position: relative;
+    min-height: 67px;
 }
 
 .top-nav
 {
-    position: relative;
+    position: fixed;
+    width: 100%;
+    background-color: #fff;
+    border-bottom: 1px solid #EEEEEE;
+
 }
 
 .top-nav > *
@@ -27,12 +32,29 @@ header
 .search-box
 {
     display: none;
+    margin-left: 90px;
+    position: relative;
+    transform: translateY(-22px);
+}
+
+.search-box img
+{
+    position: absolute;
+    width:28px;
+    top: -4px;
+    cursor:pointer;
+
 }
 
 .search-box input
 {
-    /* border: none; */
+    border: none;
     outline: none;
+    display: inline-block;
+    margin-left: 30px;
+    padding: 4px ;
+    min-width: 100px;
+    font-size: 16px;
 }
 
 .hamburger
@@ -59,8 +81,7 @@ header
 }
 
 .hamburger div:nth-child(2)
-{
-  
+{  
    width: 35px;
    transform: translateX(10px);
 }
@@ -70,6 +91,41 @@ header
     transform: translateX(20px);
 }
 
+.left-nav
+{
+    position: fixed;
+    top: 70px;
+    left:4px;
+    background-color: #fff;
+    padding: 8px ;
+    border-radius: 5px;
+
+}
+
+.left-nav img
+{
+    width: 18px;
+    margin-top: 10px;
+}
+
+.vertical-dots
+{
+    cursor: pointer;    
+    z-index: 5;
+}
+
+.vertical-dots > div
+{
+    height: 5px;
+    width: 5px;
+    margin: auto;
+    margin-bottom: 4px;
+    border-radius: 50%;
+    background-color: #507EF5;
+}
+
+
+
 @media screen and (min-width:768px)
 {
     .search-box
@@ -78,6 +134,11 @@ header
     }
     
     .hamburger
+    {
+        display: none;
+    }
+
+    .left-nav
     {
         display: none;
     }
