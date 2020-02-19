@@ -125,6 +125,98 @@ header
 }
 
 
+.right-nav
+{
+    position: fixed;
+    top: 154px;
+    height: 32px;
+    width: 32px;
+    left:6px;
+    background-color: #fff;
+    padding: 8px ;
+    border-radius: 50%;
+    box-shadow: 0px 1px 4px rgba(0, 0, 0, 0.15);
+}
+
+.horizontal-dots
+{
+  cursor:pointer;
+  padding-top:6px;
+  transform: translateX(1px);
+}
+
+.icon
+{
+    fill: #777777;
+    max-width: 30px;
+    max-height: 30px;
+}
+
+.icon-parent:hover .icon
+{
+    fill:#356DFB;
+}
+
+.plus-minus
+{
+    background: #FFFFFF;
+    box-shadow: 0px 1px 4px rgba(0, 0, 0, 0.15);
+    border-radius: 30px;
+    padding: 10px 0px;
+    min-width:35px;
+    position: fixed;
+    left:6px;
+    top:200px;
+    overflow: hidden;
+    cursor: pointer;
+}
+
+.plus-minus .icon-parent
+{
+    height: 20px;
+    width: 20px;
+    margin: auto ;
+    transform: translateX(1px);
+    stroke: #777777;
+    
+}
+
+
+
+.plus-minus .icon-parent:hover .icon
+{
+    stroke: #356DFB;;
+    
+}
+
+.plus-minus .plus
+{
+    position: relative;
+    padding-top: 2px;
+    padding-bottom: 30px;
+}
+
+.plus-minus .plus::after
+{
+    content: "";
+    background-color: rgba(120, 120, 120, 0.5);
+    position: absolute;
+    bottom: 0px;
+    width: 40px;
+    height: 2px;
+    transform: translateX(-10px);
+
+}
+
+.plus-minus .minus
+{
+    margin-top: 10px;
+}
+
+
+
+
+
 
 @media screen and (min-width:768px)
 {
@@ -133,14 +225,23 @@ header
         display: inline-block;
     }
     
-    .hamburger
+    .hamburger,.left-nav
     {
         display: none;
     }
 
-    .left-nav
+    .right-nav
     {
-        display: none;
+        right: 16px;
+        left:unset;
+        top:77px;
+    }
+    
+    .plus-minus
+    {
+        right: 15px;
+        left:unset;
+        top:124px;
     }
 
 }
