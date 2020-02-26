@@ -26,15 +26,60 @@
           <div></div>
         </div>
 
-        <nav></nav>
       </div>
+      <nav class="notes-nav">
+        <ul class="note-types">
+           <li class="icon-parent">
+              <svg class="icon">
+                <use xlink:href="#notes" />
+              </svg>
+              <span>Notes</span>
+              <span class="count"></span>
+           </li>
+
+           <li class="icon-parent">
+            <svg class="icon">
+              <use xlink:href="#to-do" />
+            </svg>
+            <span>
+              <span>Todos</span>
+            </span>
+         </li>
+
+         <li class="icon-parent">
+          <svg class="icon">
+            <use xlink:href="#trophy" />
+          </svg>
+          <span>Events</span>
+       </li>
+
+       <li class="icon-parent">
+        <svg class="icon">
+          <use xlink:href="#archives" />
+        </svg>
+        <span>Archives</span>
+     </li>
+
+     <li class="icon-parent">
+      <svg class="icon">
+        <use xlink:href="#settings" />
+      </svg>
+      <span>Settings</span>
+   </li>
+        </ul>
+
+        <div class="create-btn">
+
+          <svg class="icon">
+            <use xlink:href="#plus" />
+          </svg>
+  
+          <span>Create Note</span>
+             
+        </div>
+      </nav>
     </header>
-
-    
-    <nav class="notes-nav">
-
-    </nav>
-
+  
     <aside class="left-nav">
       <div class="vertical-dots">
         <div></div>
@@ -55,6 +100,8 @@
           <use xlink:href="#ellipses" />
         </svg>
       </div>
+
+     
      
     </aside>
 
@@ -71,6 +118,12 @@
         </svg>
       </div>
     </div>
+
+    <main>
+
+
+         
+    </main>
 
     <svg display="none">
       <symbol width="24" height="24" viewBox="0 0 24 24" id="notes">
@@ -157,5 +210,7 @@
         </defs>
       </symbol>
     </svg>
+
+    <script src="./assets/js/notes.js"></script>
   </body>
 </html>
