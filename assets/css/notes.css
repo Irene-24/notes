@@ -94,6 +94,7 @@ header
 .notes-nav
 {
     position: fixed;
+    z-index: 20;
     top:62px;
     height: 80vh;
     background: #F7FBFD;
@@ -311,6 +312,8 @@ header
     top:62px;
     background-color: #fff;
     height: 100vh;
+    padding-bottom: 300px;
+    overflow-y: scroll;
     border: 1px solid #EEEEEE;
     z-index: 10;
 }
@@ -352,6 +355,9 @@ header
     border-radius: 20px;
     text-align: center;
     padding: 6px 12px;
+    text-transform: capitalize;
+    display: inline-block;
+    min-width: 72px;
 }
 
 .note-time
@@ -376,6 +382,27 @@ header
     height: 10px;
     padding: 5px 0px 0 8px;
 }
+
+main
+{
+    padding: 15px;
+}
+
+.full-note
+{
+   margin-top:30px; 
+   margin-left: 20px;  
+   padding: 10px 15px;
+   background-color: #fff;
+}
+
+
+.full-note-content
+{
+    white-space: pre-wrap;
+}
+
+
 
 
 
@@ -439,6 +466,12 @@ header
     .note-time
     {        
         padding: 0 6px 0 21%;
+    }
+
+    .full-note
+    {
+        margin-left: 290px;
+        padding: 40px 50px;
     }
 
 
