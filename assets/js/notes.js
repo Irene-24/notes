@@ -1,7 +1,13 @@
 const hamburger= document.querySelector('.hamburger');
 const notesNav = document.querySelector('.notes-nav'); 
+const leftNav  = document.querySelector('.left-nav'); 
+const plusMinus = document.querySelector('.plus-minus'); 
+const rightNav = document.querySelector('.right-nav'); 
+const colectionCtrl = document.querySelector('.vertical-dots');
 const collection  = document.querySelector('.collection'); 
+const main = document.querySelector('.full-note');
 let data = null;
+
 const now = new Date().getTime();
 
 function toggle(menu)
@@ -124,7 +130,22 @@ async function populateData()
     
 }
 
+function showFull(index)
+{
+    const title = document.createElement('h1');
+    const content = document.createElement('p');
+}
+
 hamburger.addEventListener('click',() => toggle(notesNav));
+colectionCtrl.addEventListener('click',() => 
+{
+  toggle(collection);
+  toggle(leftNav);  
+  toggle(plusMinus);
+  toggle(rightNav );
+
+}
+);
 
 
 window.addEventListener( "load" , populateData );

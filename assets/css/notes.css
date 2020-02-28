@@ -305,6 +305,19 @@ header
     margin-top: 10px;
 }
 
+.left-nav,.plus-minus,.right-nav
+{
+    transform: translateX(0px);
+    transition: 0.4s transform ease-in-out;
+
+}
+
+.left-nav.active,.plus-minus.active,.right-nav.active
+{
+    transform: translateX(230px);
+
+}
+
 .collection
 {
     width:230px;
@@ -316,6 +329,14 @@ header
     overflow-y: scroll;
     border: 1px solid #EEEEEE;
     z-index: 10;
+    transform: translateX(-100%);
+    transition: transform ease-in-out 0.4s;
+
+}
+
+.collection.active
+{
+    transform: translateX(0%);
 }
 
 .note
@@ -446,7 +467,7 @@ main
     .note-types li
     {
         display: inline-block;
-        margin: 4px auto
+        margin: 4px 16px 4px auto 
     }
     
     .hamburger,.left-nav
@@ -468,10 +489,16 @@ main
         top:180px;
     }
 
+    .left-nav,.plus-minus,.right-nav
+    {
+        transform: translateX(0) !important; 
+    }
+
     .collection
     {
         top:126px;
-        width:280px
+        width:280px;
+        transform: translateX(0%);
     }
     
     .note-time
