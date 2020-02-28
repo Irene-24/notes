@@ -338,6 +338,15 @@ header
     transform: translateX(-100%);
     transition: transform ease-in-out 0.4s;
 
+
+}
+
+.collection .empty
+{
+    padding: 20px;
+    text-align: center;;
+    color: #444444;
+    margin-top: 20px;
 }
 
 .collection.active
@@ -374,6 +383,8 @@ header
 {
     margin-top: 16px;
     font-size: 12px;
+    align-items: center;
+    display: flex;
 }
 
 .note-tag
@@ -400,6 +411,7 @@ header
     padding: 3px 5px;
     border-radius: 10px;
     cursor: pointer;
+    max-height:20px;
 
 }
 
@@ -492,12 +504,13 @@ main
 
 .modal
 {
-    margin: 20% auto 50px;
+    margin: 80px auto 50px;
     width:90vw;
     max-width:350px;
     background: #fff;
     border-radius: 10px;
     min-height: 300px;
+    position: relative;
 
 }
 
@@ -528,6 +541,8 @@ main
 {
     font-size: 14px;
     font-family: "Roboto-Bold";
+    display: block;
+    margin-top: 20px;
 }
 
 .modal-input
@@ -549,12 +564,24 @@ main
 }
 
 
+.modal-content
+{
+   text-align: center;
+   padding-top: 70px;
+}
+
+.modal-content p
+{
+    color:#444444;
+    margin-top: 20px;
+}
+
 .modal-btn
 {
     border: 1px solid #ccc;
     cursor: pointer;
     text-align: center;
-    background-color: rgb(12, 12, 12);
+    background-color: #fff;
     color:#ccc;
     padding: 10px 24px;
     border-radius: 20px;
@@ -564,12 +591,27 @@ main
     
 }
 
+.modal-content .modal-btn
+{
+    display: inline-block;
+    margin-right: 10px;
+}
+
+
 .blue-btn
 {
     background-color: #356DFB;
-    border: 1px solid #356DFB;
+    border: none;
     color: #fff;
 }
+
+.red-btn
+{
+    background: rgba(241, 56, 67, 0.2);;
+    color :#F13843;
+    border: none;
+}
+
 
 
 @media screen and (min-width:768px)

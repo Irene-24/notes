@@ -9,6 +9,13 @@ const collection  = document.querySelector('.collection');
 const createBtn = document.querySelector('.create-btn');
 const editBtn = document.querySelector('.edit-btn');
 const delBtn = document.querySelector('.del-btn');
+const addNewBtn = document.querySelector('.add');
+
+const cancelBtns = document.querySelectorAll('.cancel');
+
+const editConfirmBtn = document.querySelector('.edit-confirm');
+
+const delConfirmBtn = document.querySelector('.del-confirm');
 
 const closeBtns = document.querySelectorAll('.close-btn');
 
@@ -16,17 +23,27 @@ const notesOpts = document.querySelector('.note-options');
 
 
 
+
+
 let oldTarget = null;
 let activeNoteIndex;
 
+document.querySelectorAll('form').forEach( form =>
+  {
+      form.addEventListener('submit', () => event.preventDefault());
+  } );
+
 
 const main = document.querySelector('.full-note');
+
 let data = null;
 
-const now = new Date().getTime();
+
 
 function showForm(formId)
 {
+
+  window.scrollTo(0,0);
 
   const container = document.querySelector(`.form-container`); 
   const form = container.querySelector(`#${formId}`);  
@@ -73,6 +90,7 @@ function formatContent(content)
 
 function getTime(time)
 {
+  const now = new Date().getTime();
    
   const distance = now - time;
 
@@ -154,24 +172,46 @@ function createNote(noteObj,index)
 
 }
 
+function hideOptions()
+{
+  notesOpts.classList.remove('active');
+}
+
+
 async function populateData()
 {
     const resp = await (await fetch("./assets/data.json")).json();
 
     data = resp;
 
-    const frag = document.createDocumentFragment();
-
-
-    data.notes.forEach( (n,i) => 
-        {
-            frag.append(createNote(n,i))
-         } );
-
-    collection.append(frag);
-
+    fillNotes(data);
     showFull(3);
     
+}
+
+function fillNotes(data)
+{
+  
+  collection.textContent = "";
+  
+
+  if(data.notes.length > 0)
+  {
+     const frag = document.createDocumentFragment();
+    data.notes.forEach( (n,i) => 
+    {
+        frag.append(createNote(n,i))
+     } );
+
+  collection.append(frag);
+  }
+  else
+  {
+    collection.innerHTML = "<h2 class='empty'>You have no notes yet</h2>"
+
+  }
+
+
 }
 
 function showFull(index)
@@ -179,7 +219,6 @@ function showFull(index)
   
     const title = document.querySelector('.full-note-title');
     const content = document.querySelector('.full-note-content');
-    ;
 
     notes = document.querySelectorAll('.note');
 
@@ -214,7 +253,7 @@ function showOptions()
 
     if(oldTarget === menu)
     {
-      notesOpts.classList.remove('active');
+       hideOptions()
       oldTarget = null;
     }
     else
@@ -245,18 +284,125 @@ function showOptions()
     
 }
 
-function editNote()
+function addNote()
 {
-    
 
+  const form = event.target.closest('.modal');
+
+  const note = 
+  {
+    
+      title:form["title"].value,
+      tag:form["tag"].value,
+      content:form["note-body"].value,
+      lastTime:new Date().getTime() 
+  }
+
+  if(validateNote(note))
+  {
+     data.notes.push(note); 
+     collection.append( createNote(note,data.notes.length-1));
+
+     collection.removeChild(collection.firstElementChild);
+    
+  }
+  
+  hideForm();
+  
+  form.reset();
+}
+
+function validateNote(note)
+{
+  let isValid = true;
+  for (const key in note) 
+  {
+    note[key] = note[key].toString().trim();
+    isValid = isValid && (note[key].length > 0);
+  }
+
+  return isValid;
+}
+
+function editNote()
+{  
+  
+  const form = event.target.closest('.modal');
+  const index = +notesOpts.dataset.index;
+  const note = 
+  {
+    
+      title:form["edit-title"].value,
+      tag:form["edit-tag"].value,
+      content:form["edit-note-body"].value,
+      lastTime:new Date().getTime() 
+  }  
+  
+
+  if(validateNote(note))
+  {
+     data.notes[index] = note; 
+     fillNotes(data);   
+    
+  }
+
+   
+  if(index === activeNoteIndex)
+  {
+     showFull(index);
+  }
+  
+  hideForm();  
+  form.reset();
+
+
+}
+
+function populateEdit()
+{
+    const form = document.querySelector('#edit');
+    const note  = data.notes[+notesOpts.dataset.index];  
+    
+    form["edit-title"].value = note["title"];
+    form["edit-tag"].value =  note["tag"];
+    form["edit-note-body"].value = note["content"];
 }
 
 function deleteNote()
 {
 
+   const index = +notesOpts.dataset.index;
+
+   data.notes.splice(index,1);
+
+   fillNotes(data);
+
+   if(data.notes.length < 1)
+   {
+      document.querySelector('.full-note').classList.add('hidden')
+   }
+   else if (index === activeNoteIndex)
+   {
+      activeNoteIndex = 0;
+      showFull(activeNoteIndex);
+   }
+
+
+
+   hideForm();
+
+
 }
 
-hamburger.addEventListener('click',() => toggle(notesNav));
+hamburger.addEventListener('click',() => {
+  toggle(notesNav);
+  hideOptions();
+  collection.classList.remove('active');
+  leftNav.classList.remove('active'); 
+  rightNav.classList.remove('active');  
+  plusMinus.classList.remove('active');
+
+});
 
 colectionCtrl.addEventListener('click',() => 
 {
@@ -264,20 +410,36 @@ colectionCtrl.addEventListener('click',() =>
   toggle(leftNav);  
   toggle(plusMinus);
   toggle(rightNav );
-  notesOpts.classList.remove('active');
+  notesNav.classList.remove('active');
+  hideOptions()
   oldTarget = null;
 
 }
 );
 
 closeBtns.forEach( btn => btn.addEventListener('click', hideForm ) );
+cancelBtns.forEach( btn => btn.addEventListener('click', hideForm ) );
 createBtn.addEventListener('click', () => showForm("create") );
+delBtn.addEventListener('click', () => showForm("delete") );
+editBtn.addEventListener('click', () =>
+{
+   showForm("edit");
+   populateEdit();
+ } );
 rightNav.addEventListener('click', showOptions);
 window.addEventListener( "load" , populateData );
+addNewBtn.addEventListener( "click" , addNote );
+delConfirmBtn.addEventListener( "click" , deleteNote);
+editConfirmBtn.addEventListener( "click" , editNote);
+notesOpts.addEventListener( "click" , () => 
+{
+   hideOptions()
+  oldTarget = null;
+ } );
 
 window.addEventListener('resize', () =>
 {
-  notesOpts.classList.remove('active');
+   hideOptions()
   oldTarget = null;
 });
 
