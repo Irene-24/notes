@@ -235,13 +235,14 @@ header
     padding: 8px ;
     border-radius: 50%;
     box-shadow: 0px 1px 4px rgba(0, 0, 0, 0.15);
+    cursor:pointer;
 }
 
 .horizontal-dots
 {
-  cursor:pointer;
   padding-top:6px;
   transform: translateX(1px);
+  pointer-events: none;
 }
 
 .icon
@@ -487,6 +488,87 @@ main
 .note-options.active
 {
     display:initial
+}
+
+.modal
+{
+    margin: 20% auto 50px;
+    width:90vw;
+    max-width:350px;
+    background: #fff;
+    border-radius: 10px;
+    min-height: 300px;
+
+}
+
+
+.modal-header
+{
+    border-bottom: 1px solid #ccc;
+    position: relative;
+    padding: 10px 15px;
+    font-family: "Roboto-Bold";
+}
+
+
+
+.modal-header .close-btn
+{
+    right: 10px;
+    top: 8px;
+}
+
+
+.modal-body
+{
+    padding: 10px 20px;
+}
+
+.modal-body label
+{
+    font-size: 14px;
+    font-family: "Roboto-Bold";
+}
+
+.modal-input
+{
+    display: block;
+    width: 100%;
+    background: rgba(196, 196, 196, 0.05);
+    border: 1px solid #DEDFEC;
+    box-sizing: border-box;
+    border-radius: 10px;
+    padding: 7px 10px;
+    outline: none;
+    margin: 6px auto;
+}
+
+.modal-input:focus
+{
+    box-shadow: 0 0 3px 0px #507EF5;
+}
+
+
+.modal-btn
+{
+    border: 1px solid #ccc;
+    cursor: pointer;
+    text-align: center;
+    background-color: rgb(12, 12, 12);
+    color:#ccc;
+    padding: 10px 24px;
+    border-radius: 20px;
+    outline: none;
+    margin-top: 30px;
+    margin-bottom: 36px;
+    
+}
+
+.blue-btn
+{
+    background-color: #356DFB;
+    border: 1px solid #356DFB;
+    color: #fff;
 }
 
 

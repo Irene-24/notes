@@ -116,14 +116,14 @@
     <aside class="collection"></aside>
 
     <ul class="note-options">
-      <li class="icon-parent">
+      <li class="icon-parent edit-btn">
         <svg class="icon">
           <use xlink:href="#pencil" />
         </svg>
         <span>Edit</span>
       </li>
 
-      <li class="icon-parent">
+      <li class="icon-parent del-btn">
         <svg class="icon">
           <use xlink:href="#trash" />
         </svg>
@@ -156,6 +156,60 @@
         </p>
       </div>
     </main>
+
+
+    <div class="form-container hidden">
+
+      <form action="" class="modal hidden" id="create">       
+
+        <h4 class="modal-header">
+             Write a note
+
+             <img
+             class="close-btn"
+             src="./assets/img/close.svg"
+             alt="close button"
+           />
+        </h4>
+
+        <div class="modal-body">
+
+          <label for="title">
+            Title
+          </label>
+
+          <input id="title" type="text" class="modal-input" placeholder="note title">
+
+          <label for="title">
+            Tag
+          </label>
+
+          <input id="tag" type="text" class="modal-input" placeholder="note tag">
+
+          <label for="note" >
+            Note
+          </label>
+
+          <textarea class="modal-input id="note" cols="30" rows="10" placeholder="note body">
+
+          </textarea>
+
+
+          <button class="modal-btn blue-btn">
+            Create
+          </button>
+
+          
+
+        </div>
+
+      </form>
+     
+
+      
+     
+
+  </div>
 
     <svg display="none">
       <symbol width="24" height="24" viewBox="0 0 24 24" id="notes">

@@ -6,15 +6,48 @@ const rightNav = document.querySelector('.right-nav');
 const colectionCtrl = document.querySelector('.vertical-dots');
 const collection  = document.querySelector('.collection'); 
 
+const createBtn = document.querySelector('.create-btn');
+const editBtn = document.querySelector('.edit-btn');
+const delBtn = document.querySelector('.del-btn');
+
+const closeBtns = document.querySelectorAll('.close-btn');
+
 const notesOpts = document.querySelector('.note-options');
 
+
+
 let oldTarget = null;
+let activeNoteIndex;
 
 
 const main = document.querySelector('.full-note');
 let data = null;
 
 const now = new Date().getTime();
+
+function showForm(formId)
+{
+
+  const container = document.querySelector(`.form-container`); 
+  const form = container.querySelector(`#${formId}`);  
+
+   container.classList.remove('hidden');
+   form.classList.remove('hidden');
+
+
+}
+
+function hideForm()
+{
+    const btn = event.target;
+    const form = btn.closest('.modal');
+    const container = btn.closest('.form-container');
+
+    container.classList.add('hidden');
+    form.classList.add('hidden');   
+
+    
+}
 
 function toggle(menu)
 {
@@ -138,7 +171,6 @@ async function populateData()
     collection.append(frag);
 
     showFull(3);
-
     
 }
 
@@ -158,12 +190,27 @@ function showFull(index)
 
     title.textContent = data.notes[index].title;
     content.innerHTML = formatBreaks( data.notes[index].content);
+
+    activeNoteIndex = index;
+
+ 
 }
 
 function showOptions()
 {
 
     const menu = event.target;
+
+    if(menu.classList.contains('note-ctrl'))
+    {
+        const index = +menu.dataset.index
+        notesOpts.setAttribute('data-index',index);
+    }
+    else
+    {
+      notesOpts.setAttribute('data-index',activeNoteIndex)
+    }
+    
 
     if(oldTarget === menu)
     {
@@ -200,6 +247,7 @@ function showOptions()
 
 function editNote()
 {
+    
 
 }
 
@@ -222,8 +270,8 @@ colectionCtrl.addEventListener('click',() =>
 }
 );
 
-
-
+closeBtns.forEach( btn => btn.addEventListener('click', hideForm ) );
+createBtn.addEventListener('click', () => showForm("create") );
 rightNav.addEventListener('click', showOptions);
 window.addEventListener( "load" , populateData );
 
@@ -232,4 +280,6 @@ window.addEventListener('resize', () =>
   notesOpts.classList.remove('active');
   oldTarget = null;
 });
+
+
 
