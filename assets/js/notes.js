@@ -5,6 +5,12 @@ const plusMinus = document.querySelector('.plus-minus');
 const rightNav = document.querySelector('.right-nav'); 
 const colectionCtrl = document.querySelector('.vertical-dots');
 const collection  = document.querySelector('.collection'); 
+
+const notesOpts = document.querySelector('.note-options');
+
+let oldTarget = null;
+
+
 const main = document.querySelector('.full-note');
 let data = null;
 
@@ -70,12 +76,14 @@ function createNote(noteObj,index)
     const title = document.createElement('h4');
     const content = document.createElement('p');
 
-    note.setAttribute("data-index",index)
+    note.setAttribute("data-index",index);
     
     const details = document.createElement('div');
     const tag = document.createElement('span');    
     const time = document.createElement('span');   
     const ctrl = document.createElement('span');
+
+    ctrl.setAttribute("data-index",index)
 
     ctrl.innerHTML = ` <svg class="icon">
     <use xlink:href="#ellipses" />
@@ -90,6 +98,8 @@ function createNote(noteObj,index)
     tag.classList.add('note-tag');
        
     ctrl.classList.add('note-ctrl');
+    title.addEventListener('click', () => showFull(index));
+    ctrl.addEventListener('click', showOptions);
 
     title.textContent = noteObj.title;
     tag.textContent = noteObj.tag;
@@ -127,25 +137,99 @@ async function populateData()
 
     collection.append(frag);
 
+    showFull(3);
+
     
 }
 
 function showFull(index)
 {
-    const title = document.createElement('h1');
-    const content = document.createElement('p');
+  
+    const title = document.querySelector('.full-note-title');
+    const content = document.querySelector('.full-note-content');
+    ;
+
+    notes = document.querySelectorAll('.note');
+
+    notes.forEach( n => n.classList.remove('active'));
+
+    notes[index].classList.add('active');
+
+
+    title.textContent = data.notes[index].title;
+    content.innerHTML = formatBreaks( data.notes[index].content);
+}
+
+function showOptions()
+{
+
+    const menu = event.target;
+
+    if(oldTarget === menu)
+    {
+      notesOpts.classList.remove('active');
+      oldTarget = null;
+    }
+    else
+    {
+      oldTarget = menu;
+      const dim = menu.getBoundingClientRect();
+      const screenW = window.innerWidth;   
+      
+    
+      notesOpts.style.top = `${dim.top  +10}px`; 
+      
+      if(screenW < 425)
+      {
+        notesOpts.style.left = `${20}px`; 
+      }
+      else if(screenW < 768)
+      {
+        notesOpts.style.left = `${dim.left}px`; 
+      }
+      else
+      {
+        notesOpts.style.left = `${dim.left - 150}px`; 
+      }
+
+      notesOpts.classList.add('active');
+
+    }
+    
+}
+
+function editNote()
+{
+
+}
+
+function deleteNote()
+{
+
 }
 
 hamburger.addEventListener('click',() => toggle(notesNav));
+
 colectionCtrl.addEventListener('click',() => 
 {
   toggle(collection);
   toggle(leftNav);  
   toggle(plusMinus);
   toggle(rightNav );
+  notesOpts.classList.remove('active');
+  oldTarget = null;
 
 }
 );
 
 
+
+rightNav.addEventListener('click', showOptions);
 window.addEventListener( "load" , populateData );
+
+window.addEventListener('resize', () =>
+{
+  notesOpts.classList.remove('active');
+  oldTarget = null;
+});
+

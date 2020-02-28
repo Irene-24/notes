@@ -4,6 +4,11 @@ body
   font-family: "Roboto", 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 }
 
+svg
+{
+    pointer-events: none;
+}
+
 header
 {
     position: relative;
@@ -353,6 +358,7 @@ header
 .note-title
 {
     margin-top: 10px;
+    cursor:pointer
 }
 
 .note-content
@@ -434,10 +440,54 @@ main
 .full-note-content
 {
     color: #777777;
-    line-height: 26px;
+    line-height: 32px;
     font-size: 14px;
+    font-family: "Lato";
 }
 
+.note-options
+{
+    background: #FFFFFF;
+    box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.15);
+    border-radius: 2px;
+    list-style-type: none;
+    position: fixed;
+    min-width: 150px;
+    min-height: 150px;
+    z-index: 15;
+    font-family: "Roboto";
+    display: none;
+}
+
+.note-options li
+{
+    margin: 10px auto;
+    padding: 5px 10px;
+    color:#ccc;
+    font-size:13px;
+}
+
+.note-options li:hover,.note-options li.active
+{
+    background: rgba(53, 109, 251, 0.07);
+    color:#356DFB;
+}
+
+.note-options li .icon
+{
+  transform: translateY(10px);
+}
+
+.note-options li.active .icon
+{
+  fill:#356DFB;
+}
+
+
+.note-options.active
+{
+    display:initial
+}
 
 
 @media screen and (min-width:768px)
