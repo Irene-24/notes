@@ -217,6 +217,10 @@ function fillNotes(data)
 function showFull(index)
 {
   
+  toggle(collection);
+  toggle(leftNav);  
+  toggle(plusMinus);
+  toggle(rightNav );
     const title = document.querySelector('.full-note-title');
     const content = document.querySelector('.full-note-content');
 
